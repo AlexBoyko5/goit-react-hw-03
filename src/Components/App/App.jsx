@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import ContactList from '../ContactList/ContactList';
 // import ContactForm from '../ContactForm/ContactForm';
-// import SearchBox from '../SearchBox/SearchBox';
+import SearchBox from '../SearchBox/SearchBox';
 
 import './App.css';
 import 'modern-normalize';
@@ -15,12 +15,17 @@ function App() {
 		{ id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
 	]);
 
+	const [filter, setFilter] = useState('');
+	const filteredContacts = contacts.filter((contact) =>
+		contact.name.toLocaleLowerCase().includes(filter.toLocaleLowerCase())
+	);
+
 	return (
 		<div>
 			<h1>Phonebook</h1>
 			{/* <ContactForm contacts={contacts} setContacts={setContacts} /> */}
-			{/* <SearchBox contacts={contacts} /> */}
-			<ContactList contacts={contacts} />
+			<SearchBox filter={filter} setFilter={setFilter} />
+			<ContactList contacts={filteredContacts} />
 		</div>
 	);
 }
