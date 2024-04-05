@@ -18,7 +18,7 @@ const ContactForm = ({ contacts, setContacts }) => {
 			initialValues={{ name: '', number: '' }}
 			validationSchema={validationSchema}
 			onSubmit={(values, { resetForm }) => {
-				const newContact = { id: nanoid, ...values };
+				const newContact = { id: nanoid(), ...values };
 				setContacts([...contacts, newContact]);
 				resetForm();
 			}}
