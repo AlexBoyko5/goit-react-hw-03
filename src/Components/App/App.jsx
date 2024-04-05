@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import ContactList from '../ContactList/ContactList';
-// import ContactForm from '../ContactForm/ContactForm';
+import ContactForm from '../ContactForm/ContactForm';
 import SearchBox from '../SearchBox/SearchBox';
 
 import './App.css';
@@ -19,13 +19,19 @@ function App() {
 	const filteredContacts = contacts.filter((contact) =>
 		contact.name.toLocaleLowerCase().includes(filter.toLocaleLowerCase())
 	);
+	const deleteContact = (id) => {
+		setContacts(contacts.filter((contact) => contact.id !== id));
+	};
 
 	return (
 		<div>
 			<h1>Phonebook</h1>
-			{/* <ContactForm contacts={contacts} setContacts={setContacts} /> */}
+			<ContactForm contacts={contacts} setContacts={setContacts} />
 			<SearchBox filter={filter} setFilter={setFilter} />
-			<ContactList contacts={filteredContacts} />
+			<ContactList
+				contacts={filteredContacts}
+				deleteContact={deleteContact}
+			/>
 		</div>
 	);
 }
