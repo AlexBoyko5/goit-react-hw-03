@@ -5,7 +5,6 @@ import SearchBox from '../SearchBox/SearchBox';
 
 import './App.css';
 import 'modern-normalize';
-import clsx from 'clsx';
 
 function App() {
 	const [contacts, setContacts] = useState(() => {
@@ -32,11 +31,20 @@ function App() {
 	};
 
 	return (
-		<div>
+		<div className="App">
 			<h1>Phonebook</h1>
-			<ContactForm contacts={contacts} setContacts={setContacts} />
-			<SearchBox filter={filter} setFilter={setFilter} />
+			<ContactForm
+				className="ContactForm"
+				contacts={contacts}
+				setContacts={setContacts}
+			/>
+			<SearchBox
+				className="SearchBox"
+				filter={filter}
+				setFilter={setFilter}
+			/>
 			<ContactList
+				className="ContactList"
 				contacts={filteredContacts}
 				deleteContact={deleteContact}
 			/>
