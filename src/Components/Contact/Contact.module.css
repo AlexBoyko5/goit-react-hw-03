@@ -1,6 +1,6 @@
 .Contact {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
     gap: 10px;
@@ -9,12 +9,14 @@
     padding: 10px;
     margin-bottom: 10px;
 }
-.icon{
+
+.icon {
     margin-left: 3px;
 }
+
 .buttonDel {
     margin: 0 12px;
     width: 100px;
     height: 50px;
-    background-color: #b2ddf4;
+    background-color: #e55353;
 }
